@@ -1,16 +1,19 @@
 #!/usr/bin/python3
 """
-Interview task
+Minumum operation Model
 """
 
 
 def minOperations(n):
-    if n <= 1:
+   
+    if type(n) is not int or n < 2:
         return 0
-    if n == 2:
-        return 2
-    else:
-        for i in range(n - 1, 0, -1):
-            if n % i == 0:
-                op = n // i
-                return op + minOperations(i)
+    result = 0
+    iteration = 2
+    while n > 1:
+        if n % iteration == 0:
+            result += iteration
+            n /= iteration
+        else:
+            iteration += 1
+    return result

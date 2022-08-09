@@ -13,20 +13,20 @@
  */
 int regex_match(char const *str, char const *pattern)
 {
-		int checks1 = 0, checks2 = 0;
+		int cheks1 = 0, checks2 = 0;
 
 	if (!str || !pattern)
 		return (0);
 
-	checks1 = *str && (*str == *pattern || *pattern == '.');
+	cheks1 = *str && (*str == *pattern || *pattern == '.');
 	checks2 = *(pattern + 1) == '*';
 
 	if (!*str && !checks2)
 		return (*pattern ? 0 : 1);
 
-	if (checks1 && checks2)
+	if (cheks1 && checks2)
 		return (regex_match(str + 1, pattern) || regex_match(str, pattern + 2));
-	else if (checks1 && !checks2)
+	else if (cheks1 && !checks2)
 		return (regex_match(str + 1, pattern + 1));
 	else if (checks2)
 		return (regex_match(str, pattern + 2));

@@ -1,2 +1,1 @@
-      ---  README file ---
-how to open lockboxes 
+# 0x00. Lockboxes
